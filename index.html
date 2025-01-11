@@ -36,30 +36,69 @@
             background-color: #198754;
         }
         .header-image {
-            height: 300px;
-            background: url('https://www.japan-guide.com/g18/6901_01.jpg') center/cover;
+            background-image: url('https://www.japan-guide.com/g18/6901_01.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
             position: relative;
+            margin-bottom: 2rem;
         }
         .header-overlay {
-            background: rgba(0,0,0,0.5);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            height: 100%;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+        }
+        .header-content {
+            padding: 2rem;
+            text-align: center;
+        }
+        .header-title {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .header-subtitle {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .alert-info {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 2rem;
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     </style>
 </head>
 <body>
     <div class="header-image">
         <div class="header-overlay">
-            <div class="text-center">
-                <h1 class="display-4">후쿠오카 여행 🗾</h1>
-                <p class="lead">2025.1.13 - 1.17</p>
+            <div class="header-content">
+                <h1 class="header-title">🐶 지똥이 Family</h1>
+                <h3 class="header-subtitle">후쿠오카 모험</h3>
+                <p class="lead">2024년 1월 13일 - 17일</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="alert alert-info" role="alert">
+                            <h4 class="alert-heading">☀️ 우리 가족의 특별한 여행!</h4>
+                            <p>지똥이와 떠나는 해외여행! 맛있는 음식도 먹고, 멋진 풍경도 보고, 즐거운 추억을 만들어볼까요?🎈</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -89,7 +128,10 @@
         <div class="tab-content" id="tripTabContent">
             <!-- Day 1 -->
             <div class="tab-pane fade show active" id="day1">
-                <h3 class="mb-4">Day 1 (1/13 월) - 도착 & 하카타/나카스</h3>
+                <h3 class="mb-4">Day 1 (1/13 월) - 후쿠오카 도착</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d26557.485834264785!2d130.34387716907958!3d33.58931512827905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x3541c2c12c3f4a0f%3A0x9c5f6e9725b0d14c!2sFukuoka%20Airport%2C%20Fukuoka%2C%20Japan!3m2!1d33.5902!2d130.4419!4m5!1s0x3541923cdf83c23b%3A0x3b05d5c8218f5b35!2sFukuoka%20Tower%2C%20Momochihama%2C%20Sawara%20Ward%2C%20Fukuoka%2C%20Japan!3m2!1d33.5935599!2d130.3513866!4m5!1s0x354191c7e6f9b375%3A0x2ee22b3d45b98b90!2sMitsui%20Garden%20Hotel%20Fukuoka%20Gion%2C%20Japan%2C%20%E3%80%92810-0801%20Fukuoka%2C%20Hakata%20Ward!3m2!1d33.590802!2d130.41082199999998!4m5!1s0x354191958e0b3e45%3A0x1441a58a161ba90c!2sMotsu%20Nabe%20Oyama%2C%20Watanabe-dori%2C%20Chuo%20Ward%2C%20Fukuoka%2C%20Japan!3m2!1d33.5883095!2d130.39653089999998!5e0!3m2!1sen!2skr!4v1705466837283!5m2!1sen!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="timeline">
                     <div class="timeline-item completed">
                         <h5>12:40 - 인천공항 출발 ✈️</h5>
@@ -120,6 +162,9 @@
             <!-- Day 2 -->
             <div class="tab-pane fade" id="day2">
                 <h3 class="mb-4">Day 2 (1/14 화) - 후쿠오카 시내</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d52973.329673010336!2d130.36419244863284!3d33.57931099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x35419194b5c5f6e7%3A0x69e04762f5455275!2sOhori%20Park%2C%20Ohorikoen%2C%20Chuo%20Ward%2C%20Fukuoka%2C%20Japan!3m2!1d33.5902468!2d130.3773696!4m5!1s0x354191937469f23f%3A0x4f46b6a1cd2511!2sDazaifu%20Tenmangu%2C%20Saifu%2C%20Dazaifu%2C%20Fukuoka%2C%20Japan!3m2!1d33.5193764!2d130.5313239!4m5!1s0x35419185e6d96f75%3A0xd84d8f6d043b9aa5!2sCanal%20City%20Hakata%2C%20Sumiyoshi%2C%20Hakata%20Ward%2C%20Fukuoka%2C%20Japan!3m2!1d33.589456699999996!2d130.41127419999998!4m5!1s0x354191958e0b3e45%3A0x1441a58a161ba90c!2sYakitori%20Kuroda%2C%20Watanabe-dori%2C%20Chuo%20Ward%2C%20Fukuoka%2C%20Japan!3m2!1d33.5883095!2d130.39653089999998!5e0!3m2!1sen!2skr!4v1705466837283!5m2!1sen!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <h5>08:00-09:00 - 호텔 조식 🍳</h5>
@@ -159,6 +204,9 @@
             <!-- Day 3 -->
             <div class="tab-pane fade" id="day3">
                 <h3 class="mb-4">Day 3 (1/15 수) - 유후인</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m25!1m12!1m3!1d26700.12659453891!2d131.34829673910656!3d33.26444444044754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m10!3e0!4m3!3m2!1d33.2636097!2d131.3706624!4m4!2s33.264445%2C131.348297!3m2!1d33.264445!2d131.348297!5e0!3m2!1sen!2skr!4v1705466837283!5m2!1sen!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <h5>09:00-11:00 - 유후인으로 이동 🚗</h5>
@@ -190,6 +238,9 @@
             <!-- Day 4 -->
             <div class="tab-pane fade" id="day4">
                 <h3 class="mb-4">Day 4 (1/16 목) - 벳푸 & 후쿠오카</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d211086.81866075887!2d130.97339445000002!3d33.37922565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x3546a7e6b7b0e81d%3A0x981c108d6c992518!2sUmi%20Jigoku%2C%20Shibuyu%2C%20Beppu%2C%20Oita%2C%20Japan!3m2!1d33.3199444!2d131.4591667!4m5!1s0x3546a7e72f7f80c3%3A0x3a21e39e5af1c6c0!2sChinoike%20Jigoku%2C%20Noboribata%2C%20Beppu%2C%20Oita%2C%20Japan!3m2!1d33.319722199999996!2d131.46194439999998!4m5!1s0x354191b7bc6b1f3d%3A0x4a14ea6aa1e3e6a6!2sHotel%20Okura%20Fukuoka%2C%20Hakata-ekimae%2C%20Hakata%20Ward%2C%20Fukuoka%2C%20Japan!3m2!1d33.590555599999995!2d130.41861109999998!4m5!1s0x354191922525c7a5%3A0x3b6c5e23b8d53d40!2sNakasu%2C%20Hakata%20Ward%2C%20Fukuoka%2C%20Japan!3m2!1d33.593333299999995!2d130.4077778!5e0!3m2!1sen!2skr!4v1705466837283!5m2!1sen!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <h5>09:00-10:00 - 벳푸로 이동 🚗</h5>
