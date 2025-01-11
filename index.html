@@ -82,6 +82,78 @@
             height: 100%;
             border: 0;
         }
+        .photo-upload-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .photo-item {
+            position: relative;
+            padding-bottom: 100%;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        .modal-body img {
+            max-width: 100%;
+            height: auto;
+        }
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .photo-item:hover .delete-btn {
+            opacity: 1;
+        }
+        .share-section {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .share-link {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .imgur-upload {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -142,11 +214,11 @@
                         <p class="text-muted">입국 수속 및 렌트카 픽업</p>
                     </div>
                     <div class="timeline-item completed">
-                        <h5>15:30-18:30 - 모모치 해변 & 후쿠오카 타워 🌅</h5>
+                        <h5>15:30-18:00 - 모모치 해변 & 후쿠오카 타워 🌅</h5>
                         <p class="text-muted">석양 명소</p>
                     </div>
                     <div class="timeline-item completed">
-                        <h5>17:00 - 미쓰이 가든 호텔 체크인 🏨</h5>
+                        <h5>18:30 - 미쓰이 가든 호텔 체크인 🏨</h5>
                     </div>
                     <div class="timeline-item completed">
                         <h5>19:00-20:30 - 모츠나베 오오야마 본점 🍲</h5>
@@ -156,6 +228,12 @@
                         <h5>21:00-22:00 - 나카스 야타이/술집 탐방 🍺</h5>
                         <p class="text-muted">선택: 야키토리 토리쇼, 안메이</p>
                     </div>
+                </div>
+                <div class="photo-upload-section">
+                    <h4>📸 Day 1 사진첩</h4>
+                    <input type="file" class="form-control mb-3" multiple accept="image/*" 
+                           onchange="handleFileSelect(event, 'day1')">
+                    <div class="photo-gallery"></div>
                 </div>
             </div>
 
@@ -199,6 +277,12 @@
                         <h5>20:30-22:00 - 야키토리 쿠로다 🍖</h5>
                     </div>
                 </div>
+                <div class="photo-upload-section">
+                    <h4>📸 Day 2 사진첩</h4>
+                    <input type="file" class="form-control mb-3" multiple accept="image/*" 
+                           onchange="handleFileSelect(event, 'day2')">
+                    <div class="photo-gallery"></div>
+                </div>
             </div>
 
             <!-- Day 3 -->
@@ -233,6 +317,12 @@
                         <h5>20:00- 온천 ♨️</h5>
                     </div>
                 </div>
+                <div class="photo-upload-section">
+                    <h4>📸 Day 3 사진첩</h4>
+                    <input type="file" class="form-control mb-3" multiple accept="image/*" 
+                           onchange="handleFileSelect(event, 'day3')">
+                    <div class="photo-gallery"></div>
+                </div>
             </div>
 
             <!-- Day 4 -->
@@ -265,6 +355,12 @@
                         <p class="text-muted">선택: 에비스야 우동, 오코노미야키 아사야마</p>
                     </div>
                 </div>
+                <div class="photo-upload-section">
+                    <h4>📸 Day 4 사진첩</h4>
+                    <input type="file" class="form-control mb-3" multiple accept="image/*" 
+                           onchange="handleFileSelect(event, 'day4')">
+                    <div class="photo-gallery"></div>
+                </div>
             </div>
 
             <!-- Day 5 -->
@@ -284,6 +380,12 @@
                     <div class="timeline-item">
                         <h5>16:20 - 인천 도착 🏠</h5>
                     </div>
+                </div>
+                <div class="photo-upload-section">
+                    <h4>📸 Day 5 사진첩</h4>
+                    <input type="file" class="form-control mb-3" multiple accept="image/*" 
+                           onchange="handleFileSelect(event, 'day5')">
+                    <div class="photo-gallery"></div>
                 </div>
             </div>
 
@@ -391,6 +493,201 @@
             </div>
         </div>
     </div>
+
+    <!-- 공유하기 섹션 추가 -->
+    <div class="container my-4">
+        <div class="share-section">
+            <h4>🤝 여행 공유하기</h4>
+            <p>친구들과 여행 일정을 공유해보세요!</p>
+            <div class="share-buttons">
+                <button class="btn btn-primary" onclick="shareKakao()">
+                    <i class="bi bi-chat-fill"></i> 카카오톡
+                </button>
+                <button class="btn btn-success" onclick="copyLink()">
+                    <i class="bi bi-link-45deg"></i> 링크 복사
+                </button>
+                <button class="btn btn-info" onclick="shareEmail()">
+                    <i class="bi bi-envelope-fill"></i> 이메일
+                </button>
+            </div>
+            <div id="shareLink" class="share-link"></div>
+        </div>
+    </div>
+
+    <!-- 사진 모달 -->
+    <div class="modal fade" id="photoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">여행 사진</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 페이지 로드 시 저장된 사진 불러오기
+        document.addEventListener('DOMContentLoaded', function() {
+            for (let i = 1; i <= 5; i++) {
+                loadPhotos(`day${i}`);
+            }
+        });
+
+        // 파일 업로드 처리
+        async function handleFileSelect(event, dayId) {
+            const files = event.target.files;
+            const gallery = document.querySelector(`#${dayId} .photo-gallery`);
+            
+            for (let file of files) {
+                if (file.type.startsWith('image/')) {
+                    try {
+                        // Imgur에 업로드
+                        const imageUrl = await uploadToImgur(file);
+                        if (imageUrl) {
+                            // 갤러리에 사진 추가
+                            addPhotoToGallery(dayId, imageUrl);
+                            // LocalStorage에 URL 저장
+                            savePhoto(dayId, imageUrl);
+                        }
+                    } catch (error) {
+                        console.error('사진 업로드 실패:', error);
+                        alert('사진 업로드에 실패했습니다. 다시 시도해주세요.');
+                    }
+                }
+            }
+        }
+
+        // Imgur 업로드 함수
+        async function uploadToImgur(file) {
+            const formData = new FormData();
+            formData.append('image', file);
+
+            try {
+                const response = await fetch('https://api.imgur.com/3/image', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Client-ID 20279b9eadaa1d6'
+                    },
+                    body: formData
+                });
+                const data = await response.json();
+                if (data.success) {
+                    return data.data.link;
+                } else {
+                    throw new Error('Imgur 업로드 실패');
+                }
+            } catch (error) {
+                console.error('Imgur 업로드 실패:', error);
+                throw error;
+            }
+        }
+
+        // 갤러리에 사진 추가
+        function addPhotoToGallery(dayId, imageUrl) {
+            const gallery = document.querySelector(`#${dayId} .photo-gallery`);
+            const div = document.createElement('div');
+            div.className = 'photo-item';
+            div.innerHTML = `
+                <img src="${imageUrl}" alt="여행 사진" onclick="showInModal(this.src)">
+                <button class="btn btn-sm btn-danger delete-btn" onclick="deletePhoto(this, '${dayId}', '${imageUrl}')">
+                    <i class="bi bi-trash"></i>
+                </button>`;
+            gallery.appendChild(div);
+        }
+
+        // LocalStorage에 사진 URL 저장
+        function savePhoto(dayId, imageUrl) {
+            let photos = JSON.parse(localStorage.getItem(`${dayId}_photos`) || '[]');
+            photos.push(imageUrl);
+            localStorage.setItem(`${dayId}_photos`, JSON.stringify(photos));
+        }
+
+        // 저장된 사진 불러오기
+        function loadPhotos(dayId) {
+            const photos = JSON.parse(localStorage.getItem(`${dayId}_photos`) || '[]');
+            photos.forEach(imageUrl => {
+                addPhotoToGallery(dayId, imageUrl);
+            });
+        }
+
+        // 사진 삭제
+        function deletePhoto(element, dayId, imageUrl) {
+            if (confirm('이 사진을 삭제하시겠습니까? (Imgur에 업로드된 사진은 계속 유지됩니다)')) {
+                // DOM에서 삭제
+                element.parentElement.remove();
+                // LocalStorage에서 URL 삭제
+                let photos = JSON.parse(localStorage.getItem(`${dayId}_photos`) || '[]');
+                photos = photos.filter(photo => photo !== imageUrl);
+                localStorage.setItem(`${dayId}_photos`, JSON.stringify(photos));
+            }
+        }
+
+        // 모달에서 사진 보기
+        function showInModal(src) {
+            const modal = document.getElementById('photoModal');
+            const modalImg = modal.querySelector('.modal-body img');
+            modalImg.src = src;
+            new bootstrap.Modal(modal).show();
+        }
+    </script>
+
+    <!-- Kakao SDK 추가 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    
+    <script>
+        // Kakao SDK 초기화
+        Kakao.init('39e61db488fb67cb79cf31e00672b196');
+
+        // 카카오톡 공유
+        function shareKakao() {
+            Kakao.Link.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '🐶 지똥이와 함께하는 후쿠오카 여행',
+                    description: '2024년 1월 13일 - 17일 후쿠오카 여행 일정입니다!',
+                    imageUrl: 'https://www.japan-guide.com/g18/6901_01.jpg',
+                    link: {
+                        mobileWebUrl: window.location.href,
+                        webUrl: window.location.href,
+                    },
+                },
+                buttons: [
+                    {
+                        title: '일정 보기',
+                        link: {
+                            mobileWebUrl: window.location.href,
+                            webUrl: window.location.href,
+                        },
+                    },
+                ],
+            });
+        }
+
+        // 링크 복사
+        function copyLink() {
+            const shareLink = document.getElementById('shareLink');
+            const currentUrl = window.location.href;
+            shareLink.style.display = 'block';
+            shareLink.textContent = currentUrl;
+            
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                alert('링크가 복사되었습니다!');
+            }).catch(err => {
+                console.error('링크 복사 실패:', err);
+            });
+        }
+
+        // 이메일 공유
+        function shareEmail() {
+            const subject = encodeURIComponent('🐶 지똥이와 함께하는 후쿠오카 여행');
+            const body = encodeURIComponent(`안녕하세요!\n\n2024년 1월 13일 - 17일 후쿠오카 여행 일정을 공유합니다.\n\n${window.location.href}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
